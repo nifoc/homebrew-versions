@@ -6,9 +6,9 @@ class PerconaXtrabackup < Formula
   revision 3
 
   bottle do
-    sha256 "668e937c8b5bfd4494325f3fb1cad14dca148c572002f4701a8c74e1a7333247" => :catalina
-    sha256 "9c9b799666a1f0ce3a56d86b01989370a0717aa62497241528005c13f2a2dc01" => :mojave
-    sha256 "1776bd19664d4e423558bde7d5c9260ef6859220f7fe5a287f802ee25f1eeba8" => :high_sierra
+    sha256 catalina:    "668e937c8b5bfd4494325f3fb1cad14dca148c572002f4701a8c74e1a7333247"
+    sha256 mojave:      "9c9b799666a1f0ce3a56d86b01989370a0717aa62497241528005c13f2a2dc01"
+    sha256 high_sierra: "1776bd19664d4e423558bde7d5c9260ef6859220f7fe5a287f802ee25f1eeba8"
   end
 
   depends_on "cmake" => :build
@@ -77,7 +77,7 @@ class PerconaXtrabackup < Formula
       system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
       system "make", "install"
     end
-    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
   end
 
   test do
